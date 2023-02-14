@@ -10,4 +10,15 @@ export default class App extends React.Component {
             showCompleted: true,
         };
     }
+
+    handleSubmit = (e, task) => {
+        e.preventDefault();
+        // generate id from timestamp and add to task
+        task.id = Date.now();
+        task.completed = false;
+        this.setState({ ...this.state, todos: [...this.state.todos, task] }, () => {
+            console.log("changes saved");
+            console.log(this.state.todos);
+        });
+    };
 }
