@@ -21,4 +21,16 @@ export default class App extends React.Component {
             console.log(this.state.todos);
         });
     };
+
+    handleOnClick = (e, id) => {
+        e.preventDefault();
+        const todos = this.state.todos.map((todo) => {
+            if (todo.id === id) {
+                todo.completed = !todo.completed;
+            }
+            return todo;
+        });
+        this.setState({ ...this.state, todos });
+    };
+
 }
