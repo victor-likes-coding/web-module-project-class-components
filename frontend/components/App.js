@@ -33,4 +33,8 @@ export default class App extends React.Component {
         this.setState({ ...this.state, todos });
     };
 
+    updateTodos = (e) => {
+        e.preventDefault();
+        this.setState({ ...this.state, showCompleted: !this.state.showCompleted });
+    };
 }
