@@ -37,4 +37,20 @@ export default class App extends React.Component {
         e.preventDefault();
         this.setState({ ...this.state, showCompleted: !this.state.showCompleted });
     };
+
+    render() {
+        return (
+            <div>
+                <h2>Todos:</h2>
+                <TodoList
+                    todos={this.state.todos}
+                    showCompleted={this.state.showCompleted}
+                    onClickHandler={this.handleOnClick}
+                />
+                <Form addTodo={this.handleSubmit} />
+                {/* toggle completed button */}
+                <button onClick={(e) => this.updateTodos(e)}>{this.state.showCompleted ? "Hide" : "Show"} Completed</button>
+            </div>
+        );
+    }
 }
